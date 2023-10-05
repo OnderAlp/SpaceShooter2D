@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+            ReturnMainMenu();
         }
 
         if (Input.GetKeyDown(KeyCode.P))
@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
 
         }
+
     }
 
     public void ResumeGame()
@@ -65,5 +66,10 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         _isGameOver = true;
+        GameObject[] Players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (var player in Players)
+        {
+            Destroy(player.gameObject);
+        }
     }
 }

@@ -27,7 +27,8 @@ public class Enemy : MonoBehaviour
 
         _animator = GetComponent<Animator>();
         _audioSource = GetComponent<AudioSource>();
-        _player = GameObject.Find("Player").GetComponent<Player>();
+        _player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
 
         transform.position = new Vector3(Random.Range(-10.0f, 10.0f), 10, 0);
 
